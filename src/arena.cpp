@@ -1,36 +1,36 @@
 #include <iostream>
-#include "Arena.h"
+#include "arena.h"
 
-void Arena::battle(Creature &first, Creature &second)
+void Arena::battle(Creature &a, Creature &b)
 {
-    std::cout << first.getName() << " vs " << second.getName() << std::endl;
+    std::cout << a.name << " vs " << b.name << std::endl;
 
     int turn = 1;
 
-    while (first.isAlive() && second.isAlive())
+    while (a.isAlive() && b.isAlive())
     {
         std::cout << "\nTurn " << turn << std::endl;
 
-        std::cout << first.getName() << " attacks!" << std::endl;
-        first.attack(second);
-        std::cout << second.getName() << " health: " << second.getHealth() << std::endl;
+        std::cout << a.name << " attacks!" << std::endl;
+        a.attack(b);
+        std::cout << b.name << " health: " << b.health << std::endl;
 
-        if (!second.isAlive())
-        {
-            std::cout << first.getName() << " wins!" << std::endl;
-            return;
-        }
+        if (!b.isAlive())
+            break;
 
-        std::cout << second.getName() << " attacks!" << std::endl;
-        second.attack(first);
-        std::cout << first.getName() << " health: " << first.getHealth() << std::endl;
-
-        if (!first.isAlive())
-        {
-            std::cout << second.getName() << " wins!" << std::endl;
-            return;
-        }
+        std::cout << b.name << " attacks!" << std::endl;
+        b.attack(a);
+        std::cout << a.name << " health: " << a.health << std::endl;
 
         turn++;
+    }
+
+    if (a.isAlive())
+    {
+        std::cout << a.name << " wins!" << std::endl;
+    }
+    else
+    {
+        std::cout << b.name << " wins!" << std::endl;
     }
 }
