@@ -17,3 +17,6 @@ add a buff/debuff class that stores any modifiers that will be added to a creatu
 Gets called at specific points in a battle: when a player is getting too powerful, a villain can automatically called to the battle; or Helper classes which assist players who are doing poorly like mending their weapons or healing them, etc.
 # Balanced attributes
 e.g. if a character is heavy, they will move slow but have more health, if they are light, they can move quick but has less health
+
+# Battle Machanics
+ >We should add chance modifiers such as critical hits and dodging. We can also add some sort of energy or power mechanic.
