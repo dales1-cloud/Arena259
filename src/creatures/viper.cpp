@@ -1,5 +1,4 @@
-#include viper.h
-#include "creature.h"
+#include "viper.h"
 
 Creature makeViper()
 {
