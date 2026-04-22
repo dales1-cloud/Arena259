@@ -4,6 +4,7 @@
 
 void Arena::battle(Creature &a, Creature &b)
 {
+    std::cout << a.name << " vs. " << b.name << std::endl;
 
     if(!Creature::validateBattle(a, b)){
         return;
@@ -29,25 +30,14 @@ void Arena::battle(Creature &a, Creature &b)
                   << std::setw(10) << b.name << " HP: " << b.health << "\n";
 
 
-        std::cout << a.name << " attacks!" << " with " << a.damage << " blow\n";
+        std::cout << a.name << " with attack power "<< a.damage << " attacks " << b.name << "!" << std::endl;
         a.attack(b);
-        std::cout << b.name << " HP is now " << b.health << "\n";
+        std::cout << b.name << " health is: " << b.health << " HP" << std::endl;
 
 
-        if (!b.isAlive()){
-		std::cout << "\n" << b.name << " has died\n";
-            	break;
-	}
-
-        std::cout << b.name << " attacks back at " << a.name << "\n";
+        std::cout << b.name << " with attack power " << b.damage << " attacks " << a.name << "!" << std::endl;
         b.attack(a);
-        std::cout << a.name << " HP is now " << a.health << "\n";
-
-	if (!a.isAlive())
-        {
-            std::cout << "\n" << a.name << " has died :(\n";
-            break;
-        }
+        std::cout << a.name << " health is: " << a.health << " HP" << std::endl;
 
         turn++;
     }
@@ -55,11 +45,13 @@ void Arena::battle(Creature &a, Creature &b)
     std::cout << "\n=============================\n";
     if (a.isAlive())
     {
-        std::cout << a.name << " wins!" << std::endl;
+        std::cout << a.name << " defeats " << b.name << "!" << std::endl;
+        std::cout << a.name << " has " << a.health << " HP remaining." << std::endl;
     }
     else
     {
-        std::cout << b.name << " wins!" << std::endl;
+        std::cout << b.name << " defeats " << a.name << "!"<< std::endl;
+        std::cout << b.name << " has " << b.health << " HP remaining." << std::endl;
     }
     std::cout << "\n=============================\n";
 }
