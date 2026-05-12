@@ -64,6 +64,9 @@ public:
 							  // use before starting a battle between the two.
 							  // returns false if either are invalid
 							  // true if both are valid.
+
+	virtual void specialMove(Creature &other);
+	
 };
 
 #endif

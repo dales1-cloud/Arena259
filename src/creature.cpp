@@ -144,3 +144,7 @@ bool Creature::validateBattle(Creature& aCreature, Creature& bCreature) {
 		return false; // return false
 	}
 }
+
+void Creature::specialMove(Creature &other){
+	std::cout << name << " has no speical move." << std::endl;
+}
